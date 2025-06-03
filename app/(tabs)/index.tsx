@@ -12,6 +12,7 @@ import {
   Text,
   View,
 } from "react-native";
+import MovieCard from "../components/MovieCard";
 import SearchBar from "../components/SearchBar";
 
 export default function Index() {
@@ -54,9 +55,7 @@ export default function Index() {
 
               <FlatList
                 data={movies}
-                renderItem={({ item }) => (
-                  <Text className="text-white text-sm">{item.title}</Text>
-                )}
+                renderItem={({ item }) => <MovieCard {...item} />}
                 keyExtractor={(item) => item.id.toString()}
                 numColumns={3}
                 columnWrapperStyle={{
